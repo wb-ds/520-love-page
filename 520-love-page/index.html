@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0a0e2a">
+    <title>毛毅馨❤王彬的提瓦特恋习册</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @font-face {
+            font-family: 'HYWenHei';
+            src: url('fonts/HYWenHei.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- 入场引导页 -->
+    <div id="entrance" class="entrance-screen">
+        <div class="entrance-content">
+            <div class="entrance-icon">❤</div>
+            <h2>毛毅馨 & 王彬</h2>
+            <p>点击任意处进入我们的世界</p>
+        </div>
+    </div>
+
+    <!-- 星空背景 -->
+    <div id="stars-container"></div>
+    
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素
+    </audio>
+    
+    <!-- 音乐控制按钮 -->
+    <div class="music-control">
+        <button id="musicToggle" class="music-btn playing">
+            <span class="music-icon">♫</span>
+        </button>
+    </div>
+    
+    <div id="mainContent" class="container hidden">
+        <header>
+            <h1>毛毅馨 <span class="heart">❤</span> 王彬<br><span class="subtitle">提瓦特恋习册</span></h1>
+            <!-- 相遇之缘图标 -->
+            <div class="wish-icon"></div>
+        </header>
+        
+        <!-- 添加横屏布局容器 -->
+        <div class="landscape-container">
+            <div class="two-column-layout">
+                <section class="love-message">
+                    <div class="message-box">
+                        <h2>致我最爱的人</h2>
+                        <p class="love-letter">
+                            这里是爱的告白文字...
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- 添加爱情故事时间线 -->
+                <section class="love-timeline">
+                    <div class="timeline-dates">
+                        <div class="timeline-date">
+                            <span class="date-label">命中注定的相遇</span>
+                            <span class="date-value">2025年3月30日</span>
+                        </div>
+                        <div class="timeline-connector">
+                            <div class="connector-line"></div>
+                        </div>
+                        <div class="timeline-date">
+                            <span class="date-label">旅程正式开始</span>
+                            <span class="date-value">2025年4月25日</span>
+                        </div>
+                    </div>
+                    <div id="love-story" class="love-story">
+                        我们的故事即将开始...
+                    </div>
+                </section>
+            </div>
+            
+            <div class="two-column-layout">
+                <section class="gallery">
+                    <h2>我们的美好回忆</h2>
+                    <div class="photos">
+                        <!-- 这里将显示照片 -->
+                    </div>
+                </section>
+                
+                <section class="love-counter">
+                    <h2>我们的冒险已经开始</h2>
+                    <div class="counter">
+                        <span id="days">0</span> 天
+                        <span id="hours">0</span> 小时
+                        <span id="minutes">0</span> 分钟
+                        <span id="seconds">0</span> 秒
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <footer>
+            <p>此生与你相伴，直到尘世尽头 ❤ 2025</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

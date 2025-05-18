@@ -1,0 +1,816 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'HYWenHei', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4c 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 30px;
+    border: 2px solid #c9a063;
+    position: relative;
+}
+
+/* 标题样式 */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 30px 0;
+    border-bottom: 2px solid #c9a063;
+    position: relative;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ffd700;
+    margin-bottom: 10px;
+    position: relative;
+    font-family: 'HYWenHei', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3), 0 0 30px rgba(255, 215, 0, 0.1);
+    z-index: 2;
+}
+
+.subtitle {
+    display: block;
+    font-size: 0.6em;
+    color: #c9a063;
+    margin-top: 10px;
+}
+
+.heart {
+    color: #e86d82;
+    display: inline-block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* 相遇之缘图标 */
+.wish-icon {
+    width: 200px;
+    height: 200px;
+    background: url('images/wish-icon.png') no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0.15;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* 爱的告白区域 */
+.love-message {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border: 1px solid #c9a063;
+    background-image: url('images/parchment.png');
+    background-size: cover;
+}
+
+.message-box::before,
+.message-box::after {
+    content: '❤';
+    font-size: 1.5em;
+    color: #e86d82;
+    position: absolute;
+    top: 10px;
+}
+
+.message-box::before {
+    left: 20px;
+}
+
+.message-box::after {
+    right: 20px;
+}
+
+.love-letter {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-top: 20px;
+    color: #5c5f8e;
+    font-family: 'HYWenHei', sans-serif;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.love-letter::-webkit-scrollbar {
+    width: 6px;
+}
+
+.love-letter::-webkit-scrollbar-thumb {
+    background-color: rgba(201, 160, 99, 0.5);
+    border-radius: 3px;
+}
+
+.love-letter::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* 照片区域 */
+.gallery {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.gallery h2 {
+    color: #ffd700;
+    margin-bottom: 20px;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列布局 */
+    gap: 15px;
+    padding: 20px 0;
+    justify-content: center;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 照片触摸反馈优化 */
+.photo-item {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover, .photo-item:active {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .photos {
+        grid-template-columns: repeat(2, 1fr); /* 在较小屏幕上改为2列 */
+    }
+    
+    /* 优化触摸操作 */
+    .photo-item {
+        -webkit-tap-highlight-color: transparent; /* 移除触摸高亮 */
+    }
+}
+
+/* 爱情计时器 */
+.love-counter {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+.love-counter h2 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+.counter {
+    font-size: 1.8em;
+    background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4c 100%);
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(10, 14, 42, 0.5);
+    border: 2px solid #c9a063;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+.counter span {
+    font-weight: bold;
+    color: #ffd700;
+    margin: 0 5px;
+}
+
+/* 状态样式 */
+.awaiting {
+    color: #a9c2e3;
+    font-size: 0.9em;
+}
+
+.started {
+    color: #e86d82;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 20px 0 10px;
+    color: #ffd700;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+footer p {
+    font-size: 1.1em;
+}
+
+/* 日期计数器 - 保留但不使用 */
+.date-counter {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    display: none; /* 隐藏该元素 */
+}
+
+.golden-counter {
+    font-size: 2.5em;
+    color: #ffd700;
+    font-family: 'HYWenHei', sans-serif;
+    margin: 15px 0;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: pulse 2s infinite ease-in-out;
+    display: none; /* 隐藏该元素 */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 动画效果 */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+h2 {
+    color: #ffd700;
+    position: relative;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+h2::before, h2::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background-color: #c9a063;
+}
+
+h2::before {
+    left: -40px;
+}
+
+h2::after {
+    right: -40px;
+}
+
+/* 星星背景效果 */
+.star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.2; }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    
+    .love-letter {
+        font-size: 1.1em;
+    }
+    
+    .counter {
+        font-size: 1.5em;
+        padding: 12px 24px;
+    }
+    
+    .wish-icon {
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* 小屏幕手机优化 */
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .music-btn {
+        width: 50px;  /* 增大音乐按钮尺寸 */
+        height: 50px;
+    }
+    
+    .music-icon {
+        font-size: 24px;
+    }
+    
+    .love-message {
+        margin-bottom: 25px;
+    }
+    
+    .message-box {
+        padding: 20px 15px;
+    }
+    
+    header {
+        margin-bottom: 30px;
+        padding: 20px 0;
+    }
+    
+    .gallery h2, .love-counter h2 {
+        font-size: 1.5em;
+    }
+    
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+/* 小屏幕手机垂直显示优化 */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .container {
+        padding: 15px 10px;
+        border-radius: 10px;
+    }
+    
+    .love-letter {
+        font-size: 1em;
+        line-height: 1.6;
+        max-height: 300px;
+    }
+    
+    .photos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .photo-item {
+        width: 100%;
+        height: 150px;
+        margin: 5px 0;
+    }
+    
+    .love-timeline {
+        padding: 15px 10px;
+    }
+    
+    .love-story {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+    
+    .counter {
+        font-size: 1.2em;
+        padding: 10px 15px;
+    }
+    
+    .date-value {
+        font-size: 1.1em;
+    }
+    
+    .date-label {
+        font-size: 0.9em;
+    }
+}
+
+/* 横屏手机适配 */
+@media (max-height: 500px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    /* 标题区域压缩 */
+    header {
+        margin-bottom: 15px;
+        padding: 10px 0;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+    
+    .subtitle {
+        font-size: 0.5em;
+    }
+    
+    .wish-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* 爱的告白区域优化 */
+    .love-message {
+        margin-bottom: 15px;
+    }
+    
+    .message-box {
+        padding: 15px;
+    }
+    
+    .love-letter {
+        font-size: 0.9em;
+        margin-top: 10px;
+        line-height: 1.5;
+        max-height: 100px;
+        overflow-y: auto;
+    }
+    
+    /* 爱情时间线横向布局 */
+    .love-timeline {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .love-story {
+        font-size: 1em;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    
+    /* 照片区域横向滚动 */
+    .gallery {
+        margin-bottom: 15px;
+    }
+    
+    .gallery h2 {
+        margin-bottom: 10px;
+    }
+    
+    .photos {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+    }
+    
+    .photo-item {
+        flex: 0 0 auto;
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+    }
+    
+    /* 爱情计时器区域 */
+    .love-counter {
+        margin-bottom: 15px;
+        padding: 10px 0;
+    }
+    
+    .counter {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+    
+    /* 页脚 */
+    footer {
+        padding: 10px 0 5px;
+    }
+    
+    /* 元素样式调整 */
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    h2::before, h2::after {
+        width: 20px;
+    }
+    
+    h2::before {
+        left: -25px;
+    }
+    
+    h2::after {
+        right: -25px;
+    }
+}
+
+/* 点击生成的浮动爱心 */
+.floating-heart {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none; /* 使爱心不影响鼠标事件 */
+    z-index: 9999; /* 确保显示在最上层 */
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
+/* 爱情时间线 */
+.love-timeline {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(10, 14, 42, 0.1);
+    border-radius: 15px;
+    border: 1px solid #c9a063;
+}
+
+.timeline-dates {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timeline-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-label {
+    color: #c9a063;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+.date-value {
+    color: #ffd700;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-family: 'HYWenHei', sans-serif;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.timeline-connector {
+    flex-grow: 1;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.connector-line {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, #c9a063, #ffd700, #c9a063);
+    position: relative;
+}
+
+.connector-line::before,
+.connector-line::after {
+    content: '❤';
+    position: absolute;
+    color: #e86d82;
+    top: -10px;
+    font-size: 16px;
+}
+
+.connector-line::before {
+    left: 33%;
+}
+
+.connector-line::after {
+    right: 33%;
+}
+
+.love-story {
+    font-size: 1.3em;
+    color: #ffd700;
+    line-height: 1.8;
+    font-family: 'HYWenHei', sans-serif;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(10, 14, 42, 0.2);
+    border-radius: 10px;
+}
+
+.highlight {
+    color: #e86d82;
+    font-weight: bold;
+    font-size: 1.2em;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #e86d82;
+    }
+    to {
+        text-shadow: 0 0 10px #e86d82, 0 0 15px #ff9999;
+    }
+}
+
+/* 横屏布局容器 */
+.landscape-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 默认情况下，两列布局不生效 */
+.two-column-layout {
+    display: block;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    /* 横屏模式下启用两列布局 */
+    .landscape-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .two-column-layout {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+    
+    .two-column-layout > section {
+        width: 48%;
+    }
+}
+
+/* 音乐控制按钮 */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(201, 160, 99, 0.8);
+    border: 2px solid #ffd700;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.music-btn.playing .music-icon {
+    animation: musicRotate 3s linear infinite;
+}
+
+.music-btn.paused .music-icon {
+    animation: none;
+    opacity: 0.5;
+}
+
+@keyframes musicRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 入场引导页面 */
+.entrance-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0a0e2a 0%, #1a1f4c 100%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.8s ease; /* 添加透明度过渡效果 */
+}
+
+.entrance-content {
+    text-align: center;
+    animation: pulse-entrance 2s infinite alternate;
+}
+
+.entrance-icon {
+    font-size: 5em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.entrance-content h2 {
+    font-size: 2.5em;
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-family: 'HYWenHei', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.entrance-content p {
+    font-size: 1.2em;
+    color: #fff;
+    font-family: 'HYWenHei', sans-serif;
+}
+
+@keyframes pulse-entrance {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* 隐藏主内容 */
+.container.hidden {
+    display: none;
+    opacity: 0; /* 初始透明度为0 */
+}
+
+/* 针对小屏幕优化入场页面 */
+@media (max-width: 480px) {
+    .entrance-icon {
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+    
+    .entrance-content h2 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    
+    .entrance-content p {
+        font-size: 1em;
+    }
+    
+    .entrance-content {
+        padding: 0 20px; /* 添加水平内边距 */
+    }
+} 
